@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Extractor",
+  "version": "0.1",
+  "description": "Extracts name, location, and education from LinkedIn profiles and exports to TXT.",
+  "permissions": ["downloads", "activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://www.linkedin.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Extract LinkedIn profile"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/in/*"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
